@@ -1,0 +1,65 @@
+/* Modal.css */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    text-align: center;
+  }
+  
+  .titleModal {
+    margin-top: 0;
+  }
+  
+  .labelModal {
+    display: block;
+    margin-top: 10px;
+  }
+  
+  .modal button {
+    
+  }
+
+.button-save {
+  background-color: green;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 15px;
+  margin-right: 10px;
+}
+
+.button-cancel {
+  background-color: red;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 15px;
+  margin-right: 10px;
+}
+
+.button-save:hover {
+  background-color: darkgreen;
+}
+
+.button-cancel:hover {
+  background-color: darkred;
+}
+
+  

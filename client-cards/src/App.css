@@ -1,0 +1,114 @@
+/* App.css */
+
+.App {
+  display: flex;
+  padding: 20px;
+  margin: 100px;
+}
+
+.ListCards {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 15px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 25px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  height: 100px;
+  position: relative;
+}
+
+.text {
+  text-align: center;
+  font-size: 1.1em;
+  font-weight: bold;
+  color: white;
+  padding-top: 20px;
+  padding-left: 12px;
+  justify-content: center;
+}
+
+/* Styling for icons on both ends */
+.icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  bottom: 0;
+  width: 100%;
+  height: 25%;
+  margin-left: 10px;
+  position: absolute;
+}
+.icon{
+  width: 30px;
+  height: 30px;
+  color: white;
+}
+
+/* Style for the "Add New Card" placeholder */
+.last-card {
+  background-color: #e0e0e0; /* Light grey */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 25px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  height: 70px;
+}
+
+.plus-icon {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #555;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+.plus-icon i {
+  font-size: 1.5em;
+}
+.editable-input {
+  width: 100%;
+  border: none;
+  background: none; 
+  color: white; 
+  font-size: 1.1em;
+  font-weight: bold;
+  text-align: center; 
+  outline: none;
+}
+
+.color-picker {
+  display: flex;
+  position: absolute; /* Position relative to the card */
+  gap: 20px; /* Space between color swatches */
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  width: 100%;
+  background-color:white;
+}
+
+.color-swatch {
+  width: 30px; /* Size of the color swatch */
+  height: 30px; /* Size of the color swatch */
+  border-radius: 50%; /* Circle shape */
+  cursor: pointer; /* Pointer cursor on hover */
+  border: 2px solid white; /* Optional: Border to distinguish swatch */
+  transition: transform 0.2s; /* Animation for hover effect */
+}
+
+.color-swatch:hover {
+  transform: scale(1.1); /* Scale effect on hover */
+}
+
+
