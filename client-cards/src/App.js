@@ -3,10 +3,11 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import ListCards from "./components/ListCards";
 
+
 function App() {
   const [cards, setCards] = useState([]);
 
-  const AxiosBook = async () => {
+  const AxiosCard = async () => {
     try {
       const response = await axios.get("http://localhost:5001/cards");
       setCards(response.data);
@@ -16,13 +17,15 @@ function App() {
   };
 
   useEffect(() => {
-    AxiosBook();
-  }, [cards]);
+    AxiosCard();
+  }, []);
 
   return (
+   
     <div className="App">
-      <ListCards cards={cards} setCards={setCards} />
+      <ListCards cards={cards} setCards={setCards} AxiosCard={AxiosCard} />
     </div>
+
   );
 }
 

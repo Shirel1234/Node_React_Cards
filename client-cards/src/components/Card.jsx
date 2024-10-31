@@ -1,17 +1,38 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { useDrag, useDrop } from "react-dnd";
 
-const Card = ({ card, setCards }) => {
+
+const Card = ({ card, index, moveCard, setCards }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [newText, setNewText] = useState(card.text);
   const [newColor, setNewColor] = useState(card.color);
   const [isColorPickerVisible, setIsColorPickerVisible] = useState(false);
 
   const colors = ["#9376E0", "#E893CF", "#F3BCC8", "#F6FFA6", "#FBD288"];
-
   useEffect(() => {
     setNewText(card.text);
   }, [card.text]);
+
+  const [, drop] = useDrop({
+    accept: "CARD",
+    hover: (draggedCard) => {
+      if (draggedCard.index !== index) {
+        console.log("Dragging card:", draggedCard.index, "over index:", index);
+        moveCard(draggedCard.index, index);
+        draggedCard.index = index;
+      }
+    },
+  });
+
+
+  const [{ isDragging }, drag] = useDrag({
+    type: "CARD",
+    item: { index },
+    collect: (monitor) => ({
+      isDragging: monitor.isDragging(),
+    }),
+  });
 
   axios.defaults.baseURL = "http://localhost:5001";
 
@@ -62,7 +83,11 @@ const Card = ({ card, setCards }) => {
   };
 
   return (
-    <div className="card" style={{ backgroundColor: newColor }}>
+    <div
+      ref={(node)=>drag(drop(node))}
+      className="card"
+      style={{ backgroundColor: newColor,  opacity: isDragging ? 0.5 : 1}}
+    >
       <div className="text" onClick={handleTextClick}>
         {isEditing ? (
           <input
