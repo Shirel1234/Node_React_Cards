@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Card from "./Card";
 import Modal from "./Modal";
 import axios from "axios";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 
-const ListCards = ({ cards, setCards, AxiosCard }) => {
+const ListCards = ({ cards, setCards, AxiosCards }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
 
@@ -22,12 +22,16 @@ const ListCards = ({ cards, setCards, AxiosCard }) => {
       const response = await axios.post("http://localhost:5001/cards", newCard);
       setCards((prevCards) => [...prevCards, response.data]);
       setIsModalOpen(false);
-      AxiosCard();
+      AxiosCards();
       console.log("The card added successfuly:");
     } catch (error) {
       console.error("Error saving new card:", error);
     }
   };
+
+  const handleUpdateCards =async (updateCards)=>{
+    await axios.put("http://localhost:5001/cards", updateCards);
+  }
 
   const moveCard = (fromIndex, toIndex) => {
     console.log("from: " + fromIndex, "toIndex: " +toIndex);
@@ -36,8 +40,10 @@ const ListCards = ({ cards, setCards, AxiosCard }) => {
       const [movedCard] = updatedCards.splice(fromIndex, 1);
       updatedCards.splice(toIndex, 0, movedCard);
       console.log("res: " + updatedCards[0].id);
+      handleUpdateCards(updatedCards);
       return updatedCards;
     });
+   
   };
 
   return (

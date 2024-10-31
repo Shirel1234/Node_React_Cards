@@ -2,7 +2,6 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDrag, useDrop } from "react-dnd";
 
-
 const Card = ({ card, index, moveCard, setCards }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [newText, setNewText] = useState(card.text);
@@ -18,13 +17,11 @@ const Card = ({ card, index, moveCard, setCards }) => {
     accept: "CARD",
     hover: (draggedCard) => {
       if (draggedCard.index !== index) {
-        console.log("Dragging card:", draggedCard.index, "over index:", index);
         moveCard(draggedCard.index, index);
         draggedCard.index = index;
       }
     },
   });
-
 
   const [{ isDragging }, drag] = useDrag({
     type: "CARD",
@@ -84,9 +81,9 @@ const Card = ({ card, index, moveCard, setCards }) => {
 
   return (
     <div
-      ref={(node)=>drag(drop(node))}
+      ref={(node) => drag(drop(node))}
       className="card"
-      style={{ backgroundColor: newColor,  opacity: isDragging ? 0.5 : 1}}
+      style={{ backgroundColor: newColor, opacity: isDragging ? 0.5 : 1 }}
     >
       <div className="text" onClick={handleTextClick}>
         {isEditing ? (

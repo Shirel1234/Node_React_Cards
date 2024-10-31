@@ -6,7 +6,7 @@ let nextId = 4;
 app.use(cors());
 app.use(express.json());
 
-const cards = [
+let cards = [
     { id: 1, text: 'A', color: '#9376E0' },
     { id: 2, text: 'B', color: '#E893CF' },
     { id: 3, text: 'C', color: '#F3BCC8' },
@@ -42,6 +42,12 @@ const cards = [
     cards.push(newCard);
     res.status(201).json({ message: 'Card created successfully', card: newCard });
   });
+
+  //Update all cards
+  app.put('/cards', (req, res)=>{
+  cards = req.body;   
+  res.json({ message: 'cards updated successfully'});
+    });
 
   //Update a card
   app.put('/cards/:id', (req, res)=>{

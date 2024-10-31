@@ -23,7 +23,7 @@ function App() {
   return (
    
     <div className="App">
-      <ListCards cards={cards} setCards={setCards} AxiosCard={AxiosCard} />
+      <ListCards cards={cards} setCards={setCards} AxiosCards={AxiosCard} />
     </div>
 
   );
