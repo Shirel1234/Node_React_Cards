@@ -7,7 +7,7 @@ const Card = ({ card, setCards }) => {
   const [newColor, setNewColor] = useState(card.color);
   const [isColorPickerVisible, setIsColorPickerVisible] = useState(false);
 
-  const colors = ["#9376E0", "#E893CF", "#F3BCC8", "#F6FFA6", "#FBD288"]; // Add more colors as needed
+  const colors = ["#9376E0", "#E893CF", "#F3BCC8", "#F6FFA6", "#FBD288"];
 
   useEffect(() => {
     setNewText(card.text);
