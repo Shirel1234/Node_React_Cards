@@ -37,15 +37,20 @@
 }
 
 /* Styling for icons on both ends */
-.icons {
+.bottomCard {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   bottom: 0;
   width: 100%;
   height: 25%;
-  margin-left: 10px;
   position: absolute;
+}
+.icons{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 10px;
+  width: 100%;
 }
 .icon{
   width: 30px;
@@ -62,7 +67,7 @@
   border-radius: 25px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 250px;
-  height: 70px;
+  height: 100px;
 }
 
 .plus-icon {
@@ -94,7 +99,8 @@
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
   width: 100%;
-  background-color:white;
+  
+  background-color: white;
 }
 
 .color-swatch {

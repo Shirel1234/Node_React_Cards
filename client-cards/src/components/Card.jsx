@@ -77,7 +77,7 @@ const Card = ({ card, setCards }) => {
         )}
       </div>
 
-      <div className="icons">
+      <div className="bottomCard">
         {isColorPickerVisible && (
           <div className="color-picker">
             {colors.map((color) => (
@@ -90,16 +90,17 @@ const Card = ({ card, setCards }) => {
             ))}
           </div>
         )}
-        <i
-          className="icon fas fa-circle"
-          onClick={() => setIsColorPickerVisible(!isColorPickerVisible)}
-        ></i>
-
         {!isColorPickerVisible && (
-          <i
-            className="icon fas fa-trash"
-            onClick={() => deleteCard(card.id)}
-          ></i>
+          <div className="icons">
+            <i
+              className="icon fas fa-circle"
+              onClick={() => setIsColorPickerVisible(!isColorPickerVisible)}
+            ></i>
+            <i
+              className="icon fas fa-trash"
+              onClick={() => deleteCard(card.id)}
+            ></i>
+          </div>
         )}
       </div>
     </div>
